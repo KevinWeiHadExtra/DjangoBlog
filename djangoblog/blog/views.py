@@ -12,3 +12,6 @@ def index(request):
 
 def about(request):
     return render(request, "blog/about.html")
+
+def blogs(request):
+    return render(request, "blog/blogs.html")
