@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
+from .models import BlogPost
 
 # Create your views here.
 
@@ -15,3 +16,7 @@ def about(request):
 
 def blogs(request):
     return render(request, "blog/blogs.html")
+
+def single(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, pk = blogpost_id)
+    return render(request, "blog/single.html", {"blogpost": blogpost})

@@ -6,5 +6,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("about/", views.about, name="about"),
     path("blogs/", views.blogs, name="blogs"),
+    path("blogs/<int:blogpost_id>/", views.single, name="single"),
     #path("blog/", views.blog, name="blog"),
 ]
