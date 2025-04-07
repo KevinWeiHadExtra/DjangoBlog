@@ -10,8 +10,8 @@
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>About Kevin</title>
-    <meta name="description" content="About Kevin">
+    <title>Contact Kevin</title>
+    <meta name="description" content="Contact">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- External CSS -->
@@ -34,8 +34,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 </head>
-<body data-spy="scroll" data-target="#navbar" class="static-layout">
-<nav id="header-navbar" class="navbar navbar-expand-lg py-4">
+<body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout">
+	<div class="boxed-page">
+		<nav id="header-navbar" class="navbar navbar-expand-lg py-4">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center text-white" href="/">
             <h3 class="font-weight-bolder mb-0">Kevin's Hideaway</h3>
@@ -49,13 +50,13 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/blogs">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link" href="">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a id="side-search-open" class="nav-link" href="#">
@@ -74,7 +75,6 @@
 
 <div id="side-nav" class="sidenav">
 	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
-	
 	<div class="sidenav-content">
 		<p>
 			Aliases:
@@ -108,54 +108,77 @@
 		</form>
 	</div>
 	
-</div>	<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url('{% static 'blog/img/bg.jpg' %}')">
+</div>		<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url('{% static 'blog/img/bg.jpg' %}')">
   <div class="container text-center">
-    <h1 class="display-2 mb-4">About Kevin</h1>
+    <h1 class="display-2 mb-4">Contact Me</h1>
   </div>
-</div>	<section id="who-we-are" class="bg-white">
+</div>		<!-- Contact Form Section -->
+<section id="contact-form" class="bg-white">
     <div class="container">
         <div class="section-content">
+            <!-- Section Title -->
             <div class="title-wrap" data-aos="fade-up">
-                <h2 class="section-title">Just a guy being a dude</h2>
-                <p class="section-sub-title">I'm just a a guy with hobbies that he loves. Those hobbies include gaming, anime, and coding as a matter of fact. 
-                    I do have a bachelors in Computer Science and I love using those skills that I have to build things that apply to the other hobbies I have. 
-                    This little blog for instance, is one of them.<br>{More personalized stuff, missing just for personal privacy}</p>
+                <h2 class="section-title">Send me a Message</h2>
+                <p class="section-sub-title">Leave me a mesage to let me know what you think and I'll get back to you or write a new article if enough people bring up the same points.</p>
             </div>
-            
-            <div class="row text-center">
-                <div class="col-md-4 col-sm-6" data-aos="fade-up">
-                    <h5 class="mb-4">Gamer</h5>
-                    <p>I personally have a affinity for games where you can showcase either your own skill expression and/or hard work. This leads me to more competitive PvP games, more grindy MMORPGs and surprisingly Gacha games. 
-                        Some more games with skil expression include Souls games and other similar games like Elden Ring and Hollow Knight. This doesn't mean that everything else is out of the equations. I like many people, enjoy a good RPG and recent games like Baldurs Gate 3 and CyberPunk 2077. 
-                        As always there are many more games and I will undoubtably enjoy more and more games as I expand my horizons.
-                    </p>
-                    <p><a class="btn btn-link" href="#" role="button">View details</a></p>
+            <!-- End of Section Title -->
+            <div class="row">
+                <!-- Contact Form Holder -->
+                <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+                    <form method="post" name="contact-us" action="">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- /.col-md-4 col-sm-6  -->
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="mb-4">Programmer</h5>
-                    <p>I am a Computer Science graduate with a Bachelors and I really enjoy using those skills that I've built up over the years to build projects that also apply to my other hobbies. This little blog project for one, is exactly one of those projects. 
-                        Gaming is such a broad space and in all the different genres are apps that can be made to help with anything and everything in the ever growing industry. 
-                        There are thousands of APIs either made by official game developers and also fan made ones that offer plenty of different ways of interacting with my favorite mediums. 
-                        One such example is recently I have been on a major Pokemon kick and I've had a lot of fun making a little Pokedex app where I can search up different Pokemon and their information. I also want to make a database pertaining to the Pokemon TCG as I have (potentially stupidly) gotten back into that hobby.
-                    </p>
-                    <p><a class="btn btn-link" href="#" role="button">View details</a></p>
-                </div>
-                <!-- /.col-md-4 col-sm-6  -->
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
-                    <h5 class="mb-4">Anime Watcher</h5>
-                    <p>I've been consuming anime for a pretty long time at this point. Since I was a kid I have watched Pokemon but I didn't really start looking into the medium until high school. When I did though, I dived deep into it. I understand that a lot of the anime I watch aren't insanely well writen stories with complex themes and lesson, but I still enjoy them nonetheless. 
-                        I do enjoy a lot fo the popular shounen action animes like eveyone else, and I also do enjoy some romance and slice of life here and there. One of my favorite sub-genres is actually historical/warring kingdoms. Anime like The Apothecary Diaries as of recent and Yona of the Dawn in the past. One of the "problems" with anime though is that there is no guarantee that an anime you love will get more seasons.
-                        That's why I started reading manga as often times I can get that little more out of the story when an anime just never comes out with a second season.
-                    </p>
-                    <p><a class="btn btn-link" href="#" role="button">View details</a></p>
-                </div>
-                <!-- /.col-md-4 col-sm-6  -->
+                <!-- End of Contact Form Holder -->
             </div>
-            <!-- /.row -->
+        </div>
+        <div class="section-content pt-0">
+            <div class="title-wrap" data-aos="fade-up">
+                <h2 class="section-title">Where To Find Me?</h2>
+            </div>
+            <div class="row text-center mt-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <span class="lnr lnr-location fs-40 py-4 d-block"></span>
+                    <h5>LOCATION</h5>
+                    <p>California</p>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <span class="lnr lnr-clock fs-40 py-4 d-block"></span>
+                    <h5>WORKING TIME</h5>
+                    <p>Monday - Friday</p>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <span class="lnr lnr-phone fs-40 py-4 d-block"></span>
+                    <h5>CALL ME</h5>
+                    <p>123-45678</p>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="600">
+                    <span class="lnr lnr-phone fs-40 py-4 d-block"></span>
+                    <h5>EMAIL</h5>
+                    <p>email@email.com</p>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
+<!-- End of Contact Form Section -->		<!-- Features Section-->
 <section id="cta" class="bg-fixed overlay" style="background-image: url('{% static 'blog/img/bg-white.jpg' %}')">
     <div class="container">
         <div class="section-content" data-aos="fade-up">
@@ -169,8 +192,7 @@
         </div>
     </div>
 </section>
-<!-- End of Features Section--></div>
-<footer class="mastfoot my-3">
+<!-- End of Features Section-->		<footer class="mastfoot my-3">
     <div class="inner container">
          <div class="row">
          	<div class="col-lg-4 col-md-12 d-flex align-items-center">
@@ -202,7 +224,10 @@
             
         </div>
     </div>
-</footer>	<!-- External JS -->
+</footer>	</div>
+	
+</div>
+	<!-- External JS -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 	<script src="{% static 'blog/vendor/bootstrap/popper.min.js' %}"></script>
 	<script src="{% static 'blog/vendor/bootstrap/bootstrap.min.js' %}"></script>

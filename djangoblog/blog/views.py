@@ -17,6 +17,9 @@ def about(request):
 def blogs(request):
     return render(request, "blog/blogs.html")
 
+def contact(request):
+    return render(request, "blog/contact.html")
+
 def single(request, blogpost_id):
     blogpost = get_object_or_404(BlogPost, pk = blogpost_id)
     return render(request, "blog/single.html", {"blogpost": blogpost})
