@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import BlogPost
+from django.views import generic
 
 # Create your views here.
 
@@ -8,11 +9,23 @@ from django.urls import path
 
 from . import views
 
-def index(request):
-    return render(request, "blog/index.html")
+
+class IndexView(generic.ListView):
+    template_name = "blog/index.html"
+    context_object_name = "blog_list"
+
+    def get_queryset(self):
+        return BlogPost.objects.all()
 
 def about(request):
     return render(request, "blog/about.html")
+
+class BlogsView(generic.ListView):
+    template_name = "blog/blogs.html"
+    context_object_name = "blog_list"
+
+    def get_queryset(self):
+        return BlogPost.objects.all()
 
 def blogs(request):
     return render(request, "blog/blogs.html")
