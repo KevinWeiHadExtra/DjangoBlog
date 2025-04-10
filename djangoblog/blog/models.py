@@ -8,6 +8,7 @@ class BlogPost(models.Model):
     author = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
     body = models.TextField()
+    image = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return self.description
