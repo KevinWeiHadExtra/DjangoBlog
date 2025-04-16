@@ -13,5 +13,3 @@ urlpatterns = [
     path("blogs/<int:blogpost_id>/", views.single, name="single"),
     #path("blog/", views.blog, name="blog"),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

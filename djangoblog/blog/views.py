@@ -27,9 +27,6 @@ class BlogsView(generic.ListView):
     def get_queryset(self):
         return BlogPost.objects.all()
 
-def blogs(request):
-    return render(request, "blog/blogs.html")
-
 def contact(request):
     return render(request, "blog/contact.html")
 
