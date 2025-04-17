@@ -123,10 +123,15 @@
             <div class="row">
                 <!-- Blog -->
                 <div class="col-md-12 blog-holder">
-                    <div class="row">
+                    <div class="filter-button-group btn-filter d-flex justify-content-center">
+                        <button onclick="filterPosts('all')">All</button>
+                        <button onclick="filterPosts('Anime')">Anime</button>
+                        <button onclick="filterPosts('Games')">Games</button>
+                    </div>
+                    <div class="row" id = "post-container">
                         {% for post in blog_list %}
                         <!-- Blog Item -->
-                        <div class="col-md-4 blog-item-wrapper" data-aos="fade-up">
+                        <div class="col-md-4 blog-item-wrapper post" data-category="{{ post.topic }}" data-aos="fade-up">
                             <div class="blog-item">
                                 <div class="blog-img">
                                     <a href="/blogs/{{post.id}}"><img src="{{post.image.url}}" alt=""></a>
@@ -148,22 +153,26 @@
                                     <div class="blog-author">
                                         <p>by {{post.author}}</p>
                                     </div>
-                                    <!--
-                                    <div class="blog-share-wrapper">
-                                        <a class="blog-share" href="https://www.google.com">
-                                            <i class="fab fa-facebook-square"></i>
-                                        </a>
-                                        <a class="blog-share" href="https://www.google.com">
-                                            <i class="fab fa-twitter-square"></i>
-                                        </a>
-                                    </div>
-                                    -->
                                 </div>
                             </div>
                         </div>
                         <!-- End of Blog Item -->
                         {% endfor %}
                     </div>
+                    <script>
+                        function filterPosts(topic) {
+                          const posts = document.querySelectorAll('.post');
+                          posts.forEach(post => {
+                            console.log(post.getAttribute('data-category'))
+                            const postCategory = post.getAttribute('data-category');
+                            if (topic === 'all' || postCategory === topic) {
+                              post.style.display = 'block';
+                            } else {
+                              post.style.display = 'none';
+                            }
+                          });
+                        }
+                    </script>
                 </div>
                 <!-- End of Blog -->
             </div>
