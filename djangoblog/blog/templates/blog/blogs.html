@@ -124,9 +124,9 @@
                 <!-- Blog -->
                 <div class="col-md-12 blog-holder">
                     <div class="filter-button-group btn-filter d-flex justify-content-center">
-                        <button onclick="filterPosts('all')">All</button>
-                        <button onclick="filterPosts('Anime')">Anime</button>
-                        <button onclick="filterPosts('Games')">Games</button>
+                        <a tabindex="0" onclick="filterPosts('all')">Show All</a>
+                        <a tabindex="0" onclick="filterPosts('Anime')">Anime</a>
+                        <a tabindex="0" onclick="filterPosts('Games')">Games</a>
                     </div>
                     <div class="row" id = "post-container">
                         {% for post in blog_list %}
