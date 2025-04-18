@@ -249,46 +249,21 @@
             <div class="row">
                 <!-- Testimonial -->
                 <div class="testi-content testi-carousel owl-carousel">
+                    {% for blog in blog_list|slice:":3" %}
                     <div class="testi-item text-center">
                         <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                        <h4 class="testi-text">Souls game should <b>NOT</b> have a "easy" mode. <br>The difficulty is set by the developer and attempting to alter that is a disservice to them and <b>yourself</b>.</h4>
+                        <h4 class="testi-text">{{blog.description}}</h4>
                         <div class="testi-meta-inner d-flex justify-content-center align-items-center">
                             <div class="testi-img mr-2">
                                 <img src="{% static 'blog/img/kiminonawa.png' %}" alt="">
                             </div>
                             <div class="testi-details">
-                                <p class="testi-author mb-0 font-weight-bolder">Kevin</p>
-                                <p class="testi-desc mb-0">Trash Gamer</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="testi-item text-center">
-                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                        <h4 class="testi-text">Modern day skill-based matchmaking is oftem implemented poorly and is a system set to <b>coddle</b> players and suports <b>mediocrity</b> over excellence.</h4>
-                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                            <div class="testi-img mr-2">
-                                <img src="{% static 'blog/img/kiminonawa.png' %}" alt="">
-                            </div>
-                            <div class="testi-details">
-                                <p class="testi-author mb-0 font-weight-bolder">Kevin</p>
+                                <p class="testi-author mb-0 font-weight-bolder">{{blog.author}}</p>
                                 <p class="testi-desc mb-0">Trash Gamer</p>
                             </div>
                         </div>
                     </div>
-                     <div class="testi-item text-center">
-                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                        <h4 class="testi-text">Frieren is <b>Trash</b></h4>
-                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                            <div class="testi-img mr-2">
-                                <img src="{% static 'blog/img/fish.jpg' %}" alt="">
-                            </div>
-                            <div class="testi-details">
-                                <p class="testi-author mb-0 font-weight-bolder">A Fish</p>
-                                <p class="testi-desc mb-0">Fish</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <!-- End of Testimonial -->
             </div>
