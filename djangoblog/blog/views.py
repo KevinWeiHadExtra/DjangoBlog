@@ -16,7 +16,7 @@ class IndexView(generic.ListView):
     context_object_name = "blog_list"
 
     def get_queryset(self):
-        return BlogPost.objects.all()
+        return BlogPost.objects.all().order_by('-pub_date')
 
 def about(request):
     return render(request, "blog/about.html")
@@ -26,7 +26,7 @@ class BlogsView(generic.ListView):
     context_object_name = "blog_list"
 
     def get_queryset(self):
-        return BlogPost.objects.all()
+        return BlogPost.objects.all().order_by('-pub_date')
 
 def contact(request):
     return render(request, "blog/contact.html")
