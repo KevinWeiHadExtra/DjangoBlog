@@ -7,10 +7,6 @@ class RatingInLine(admin.StackedInline):
 
 
 class PostAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {"fields": ["topic"]}),
-        ("Date information", {"fields": ["pub_date"]}),
-    ]
     inlines = [RatingInLine]
 
 
