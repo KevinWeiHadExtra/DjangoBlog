@@ -156,15 +156,18 @@
                 <!-- End of Contact Form Holder -->
             </div>
             <hr>
-            <div class="">
-                <div class="col-md-8 offset-md-2 mt-4 text-center">
+            <div class="col-md-8 offset-md-2 mt-4 text-center">
+                <form method="post" name="upvote" action="{% url 'upvote' blogpost.id %}">
+                    {% csrf_token %}
                     <h5>Upvotes: {{blogpost.rating.upvote}}</h5>
                     <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Upvote</button>
-                    <br>
-                    <br>
+                </form>
+                <br>
+                <form method="post" name="downvote" action="{% url 'downvote' blogpost.id %}">
+                    {% csrf_token %}
                     <h5>Downvotes: {{blogpost.rating.downvote}}</h5>
                     <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Downvote</button>
-                </div>
+                </form>
             </div>
             <hr>
             

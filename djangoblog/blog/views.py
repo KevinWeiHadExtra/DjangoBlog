@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import BlogPost, Message
 from django.views import generic
 from django.urls import reverse
+from django.db.models import F
 
 # Create your views here.
 
@@ -42,3 +43,17 @@ def submit(request):
 def single(request, blogpost_id):
     blogpost = get_object_or_404(BlogPost, pk = blogpost_id)
     return render(request, "blog/single.html", {"blogpost": blogpost})
+
+def upvote(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+    blogpost.rating.upvote = F("upvote") + 1
+    blogpost.rating.save()
+    blogpost.rating.refresh_from_db()
+    return HttpResponseRedirect(reverse("single", args=(blogpost_id,)))
+
+def downvote(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+    blogpost.rating.downvote = F("downvote") + 1
+    blogpost.rating.save()
+    blogpost.rating.refresh_from_db()
+    return HttpResponseRedirect(reverse("single", args=(blogpost_id,)))
