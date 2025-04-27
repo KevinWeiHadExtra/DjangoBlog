@@ -171,7 +171,7 @@
             <div>
                 <div class="  mt-4">
                     <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
-                        <form method="post" name="contact-me" action="{% url 'submit' %}">
+                        <form method="post" name="contact-me" action="{% url 'comment' blogpost.id %}">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-12 form-group">

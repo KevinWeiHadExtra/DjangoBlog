@@ -23,6 +23,15 @@ class Rating(models.Model):
     def __str__(self):
         return "Rating"
     
+class Comment(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+
+    name = models.CharField(max_length=200)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.name
+    
 class Message(models.Model):
     name = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
