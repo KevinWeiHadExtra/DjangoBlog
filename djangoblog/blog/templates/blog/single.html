@@ -192,6 +192,15 @@
                 </div>
             </div>
             <hr>
+            <div class="col-md-12 offset-md-2 mt-4">
+                <h3>Comments:</h3>
+            </div>
+            <div class="col-md-8 offset-md-2 mt-4">
+                {% for comment in blogpost.comment_set.all %}
+                    <h4>{{comment.name}}</h4>
+                    <p>{{comment.body}}</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>
