@@ -12,5 +12,8 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("contact/submit/", views.submit, name="submit"),
     path("blogs/<int:blogpost_id>/", views.single, name="single"),
+    path("blogs/<int:blogpost_id>/upvote/", views.upvote, name="upvote"),
+    path("blogs/<int:blogpost_id>/downvote/", views.downvote, name="downvote"),
+    path("blogs/<int:blogpost_id>/comment/", views.comment, name="comment"),
     #path("blog/", views.blog, name="blog"),
 ]

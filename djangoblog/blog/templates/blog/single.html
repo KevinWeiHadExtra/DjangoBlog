@@ -73,7 +73,7 @@
 </div>	<nav id="header-navbar" class="navbar navbar-expand-lg py-4">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center text-white" href="/">
-            <h3 class="font-weight-bolder mb-0">ROXY</h3>
+            <h3 class="font-weight-bolder mb-0">Kevin's Hideaway</h3>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
             <span class="lnr lnr-menu"></span>
@@ -144,16 +144,62 @@
 <section id="single-content" class="bg-white">
     <div class="container">
         <div class="section-content blog-content">
-            
             <div class="row">
-                <!-- Single Content Holder -->
                 <div class="col-md-8 offset-md-2 mt-4">
                     <h4>{{blogpost.topic}}</h4>
                     <img class="float-left" width="320px" src="{{blogpost.image.url}}" alt="">
                     <h3>{{blogpost.description}}</h3>
                     <p>{{blogpost.body}}</p>
                 </div>
-                <!-- End of Contact Form Holder -->
+            </div>
+            <hr>
+            <div class="col-md-8 offset-md-2 mt-4 text-center">
+                <form method="post" name="upvote" action="{% url 'upvote' blogpost.id %}">
+                    {% csrf_token %}
+                    <h5>Upvotes: {{blogpost.rating.upvote}}</h5>
+                    <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Upvote</button>
+                </form>
+                <br>
+                <form method="post" name="downvote" action="{% url 'downvote' blogpost.id %}">
+                    {% csrf_token %}
+                    <h5>Downvotes: {{blogpost.rating.downvote}}</h5>
+                    <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Downvote</button>
+                </form>
+                <br>
+            </div>
+            <hr>
+            <div>
+                <div class="  mt-4">
+                    <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+                        <form method="post" name="contact-me" action="{% url 'comment' blogpost.id %}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <h4>Leave a Comment:</h4>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Your Comment ..."></textarea>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-12 offset-md-2 mt-4">
+                <h3>Comments:</h3>
+            </div>
+            <div class="col-md-8 offset-md-2 mt-4">
+                {% for comment in blogpost.comment_set.all %}
+                    <h4>{{comment.name}}</h4>
+                    <p>{{comment.body}}</p>
+                {% endfor %}
             </div>
         </div>
     </div>

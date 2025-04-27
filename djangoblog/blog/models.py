@@ -13,6 +13,24 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+class Rating(models.Model):
+    post = models.OneToOneField(BlogPost, on_delete=models.CASCADE)
+
+    upvote = models.IntegerField(default=0)
+    downvote = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "Rating"
+    
+class Comment(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+
+    name = models.CharField(max_length=200)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.name
     
 class Message(models.Model):
     name = models.CharField(max_length=200)
